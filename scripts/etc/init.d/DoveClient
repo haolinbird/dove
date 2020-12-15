@@ -1,0 +1,108 @@
+#!/bin/sh
+#processname: DoveClient
+#description: Jumei configuration system client.
+#checkconfig: 2345
+
+### BEGIN INIT INFO
+# Provides:          DoveClient
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Jumei configuration system client.
+# Description:       This file should be used to construct scripts to be
+#                    placed in /etc/init.d.
+### END INIT INFO
+
+# Author: Su Chao <chaos@jumei.com>
+#
+# Change the belowing configs according to your project deployment.
+DESC="Jumei configuration system client."
+NAME=DoveClient
+
+DAEMON=/usr/local/DoveClient/DoveClient
+
+
+# 项目配置所在的目录
+CONFIG_DIR=
+
+# 读入配置覆盖默认值
+[ -r /etc/${NAME}.conf ] && . /etc/${NAME}.conf
+
+DAEMON_ARGS=""
+PIDFILE=${DATA_DIR}/pid
+SCRIPTNAME=/etc/init.d/DoveClient
+
+# 下面的代码不要改动
+# DONOT change anything below.
+
+if [ ! -x "$DAEMON" ]; then
+ echo $DAEMON not executable!
+ exit 3
+fi
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+do_start() {
+    pid=$(pidofproc -p $PIDFILE $DAEMON)
+    if [ -n "$pid" ] ; then
+        log_begin_msg "$DESC already running."
+        log_end_msg 0
+        exit 0
+    fi
+
+    log_daemon_msg "Starting $DESC daemon: "
+    start-stop-daemon --start --quiet --background --pidfile $PIDFILE --exec $DAEMON -- --detach $DAEMON_ARGS start
+    log_end_msg $?
+}
+
+do_restart() {
+    $DAEMON restart > /dev/null
+    return $?
+}
+do_stop() {
+    log_begin_msg "Stopping $DESC ..."
+    start-stop-daemon --stop --retry=5 --exec $DAEMON -- stop
+    RC=$?
+    [ $RC -eq 0 ] && rm -f $PIDFILE
+    log_end_msg $RC
+}
+
+
+case "$1" in
+    start)
+        [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
+        do_start
+        case "$?" in
+            0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
+              2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+        esac
+        ;;
+    stop)
+        [ "$VERBOSE" != no ] && log_daemon_msg "Stopping $DESC" "$NAME"
+        do_stop
+        case "$?" in
+            0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
+              2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+        esac
+        ;;
+    #reload)
+        # not implemented
+        #;;
+    restart)
+        log_daemon_msg "Restarting $DESC" "$NAME"
+        do_restart
+        log_end_msg $?
+        ;;
+    status)
+         start-stop-daemon --status --exec $DAEMON -- status
+         log_end_msg $?
+        ;;
+    *)
+        echo "Usage: $SCRIPTNAME {start|stop|restart|status}" >&2
+        exit 3
+        ;;
+esac
+
+exit 0

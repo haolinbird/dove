@@ -1,0 +1,77 @@
+{
+	"ImportPath": "doveclient",
+	"GoVersion": "go1.6",
+	"GodepVersion": "v75",
+	"Deps": [
+		{
+			"ImportPath": "git.oschina.net/chaos.su/go-toml",
+			"Comment": "v0.2.2-2-g8857583",
+			"Rev": "8857583829429d83de62f1e273b266fd5519edb1"
+		},
+		{
+			"ImportPath": "github.com/go-fsnotify/fsnotify",
+			"Comment": "v1.2.9",
+			"Rev": "8611c35ab31c1c28aa903d33cf8b6e44a399b09e"
+		},
+		{
+			"ImportPath": "github.com/samuel/go-zookeeper/zk",
+			"Rev": "1d7be4effb13d2d908342d349d71a284a7542693"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/cache",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/comparer",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/errors",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/filter",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/iterator",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/journal",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/memdb",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/opt",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/storage",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/table",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/goleveldb/leveldb/util",
+			"Rev": "315fcfb05d4d46d4354b313d146ef688dda272a9"
+		},
+		{
+			"ImportPath": "github.com/syndtr/gosnappy/snappy",
+			"Rev": "156a073208e131d7d2e212cb749feae7c339e846"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/blowfish",
+			"Rev": "f6b343c37ca80bfa8ea539da67a0b621f84fab1d"
+		}
+	]
+}

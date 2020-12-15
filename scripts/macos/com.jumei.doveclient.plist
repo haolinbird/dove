@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>GroupName</key>
+        <string>nobody</string>
+        <key>KeepAlive</key>
+        <false/>
+        <key>Label</key>
+        <string>com.jumei.doveclient</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/usr/bin/DoveClient</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>ServiceDescription</key>
+        <string>聚美配置管理客户端(PHP)</string>
+        <key>UserName</key>
+        <string>nobody</string>
+    </dict>
+</plist>
